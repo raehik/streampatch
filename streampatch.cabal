@@ -1,0 +1,81 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           streampatch
+version:        0.1.0
+synopsis:       Patch data in a stream
+description:    Please see README.md.
+category:       CLI
+homepage:       https://github.com/raehik/streampatch#readme
+bug-reports:    https://github.com/raehik/streampatch/issues
+author:         Ben Orchard
+maintainer:     Ben Orchard <thefirstmuffinman@gmail.com>
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/raehik/streampatch
+
+library
+  exposed-modules:
+      Streampatch.Check
+      Streampatch.Linearize
+      Streampatch.Patch
+      Streampatch.Stream
+      Streampatch.Test
+  other-modules:
+      Paths_streampatch
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+      NoStarIsType
+      DerivingVia
+      DeriveAnyClass
+      GADTs
+      RoleAnnotations
+      DefaultSignatures
+      TypeFamilies
+      DataKinds
+      MagicHash
+  ghc-options: -Wall -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+    , bluefin
+    , bytestring
+    , transformers
+  default-language: GHC2021
+
+executable bytepatch
+  main-is: Main.hs
+  other-modules:
+      Paths_streampatch
+  hs-source-dirs:
+      app
+  default-extensions:
+      LambdaCase
+      NoStarIsType
+      DerivingVia
+      DeriveAnyClass
+      GADTs
+      RoleAnnotations
+      DefaultSignatures
+      TypeFamilies
+      DataKinds
+      MagicHash
+  ghc-options: -Wall -Wno-unticked-promoted-constructors
+  build-depends:
+      base
+    , bluefin
+    , bytestring
+    , streampatch
+    , transformers
+  default-language: GHC2021
